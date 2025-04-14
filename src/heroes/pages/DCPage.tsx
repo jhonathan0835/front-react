@@ -1,10 +1,12 @@
-import React from 'react'
+import HeroList from '../components/HeroList'
 
 const DCPage = () => {
   return (
     <>
         <h1>DC Pages</h1>
-        <p>Welcome to the DC Pages!</p>
+        <hr />
+        <HeroList publisher='DC Comics' />
+        
     </>
   )
 }

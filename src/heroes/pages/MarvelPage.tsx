@@ -1,10 +1,10 @@
-import React from 'react'
+import HeroList from '../components/HeroList'
 
 const MarvelPage = () => {
   return (
     <>
         <h1>Marvel Page</h1>
-        <p>Welcome to the Marvel page!</p>
+        <HeroList publisher='Marvel Comics' />
     </>
   )
 }
