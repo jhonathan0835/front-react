@@ -7,17 +7,25 @@ import { types } from '../types/Types';
 const initialState = {
     logged: false
 }
+
+const init =()=>{
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  return {
+    logged: !!user,
+    user: user
+  }
+}
 const AuthProvider = ({ children }: { children: ReactNode }) => {
-    const [authState, dispatch] = useReducer(AuthReducer, initialState);
+    const [authState, dispatch] = useReducer(AuthReducer, {initialState},init);
 
     const login = async(name = '' as string) => {
-      const action = {
+      const user = {id: 'ABC',name}
+      
+      const action ={
         type: types.login,
-        payload: {
-          id: 'ABC',
-          name: name
-        }
+        payload: user
       }
+      localStorage.setItem('user', JSON.stringify(user));
       dispatch(action);
     }
   return (
