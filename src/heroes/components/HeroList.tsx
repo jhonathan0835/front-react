@@ -1,6 +1,6 @@
-import React from 'react'
 import getHeroesHeroByPublisher from '../helpers/getHeroesHeroByPublisher';
 import HeroCard from './HeroCard';
+import { useMemo as reactUseMemo } from 'react';
 
 interface Hero {
   id: string;
@@ -18,7 +18,7 @@ interface HeroListProps {
 
 const HeroList: React.FC<HeroListProps> = ({publisher}) => {
 
-  const heroes: Hero[] = getHeroesHeroByPublisher(publisher);
+  const heroes: Hero[] = useMemo(() => getHeroesHeroByPublisher(publisher), [publisher]);
   return (
     <div className ="row rows-cols-1 row-cols-md-3 g-3">
        {
@@ -33,3 +33,7 @@ const HeroList: React.FC<HeroListProps> = ({publisher}) => {
 }
 
 export default HeroList
+function useMemo<T>(factory: () => T, deps: React.DependencyList): T {
+  return reactUseMemo(factory, deps);
+}
+

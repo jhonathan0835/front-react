@@ -22,7 +22,7 @@ const HeroCard: React.FC<HeroCardProps> = ({
     const heroImageUrl = `public/assets/${id}.jpg`;
 
   return (
-    <div className="col">
+    <div className="col animate__animated animate__bounce animate__fadeIn">
         <div className="card">
             <div className="row no-gutters">
                 <div className="col-4">
